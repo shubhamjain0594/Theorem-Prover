@@ -6,9 +6,10 @@ import java.util.List;
 public class InputParser {
 	private List<Hypothesis> LeftExpression =  new ArrayList<Hypothesis>();
 	private Conjecture RightExpression;
+	private andOrRemover andorremover;
 	// Assuming initially LeftExpression is null
 	public InputParser(String conj){
-		RightExpression = new Conjecture(conj);
+		RightExpression = new Conjecture(andorremover.Remover(conj));
 	}
 	public String getDeducedForm(){
 		while(RightExpression.isDeducable()){
